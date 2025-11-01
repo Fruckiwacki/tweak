@@ -390,3 +390,63 @@
 "CUSTOM_TAB_BAR_PROFILE" = "Profil";
 "HIDE_BLUE_VERIFIED_OPTION_TITLE" = "Dölj Blue-verifieringsbockar";
 "HIDE_BLUE_VERIFIED_OPTION_DETAIL_TITLE" = "Dölj betald verifieringsbock på Tweets. Detta omfattar inte varumärkes- eller myndighetskonton.";
+
+
+"SOURCE_UNAVAILABLE" = "Källa otillgänglig";
+
+"notif_reposted_your_post_old" = "återpublicerade ditt inlägg";
+"notif_reposted_your_Post_old" = "återpublicerade ditt Inlägg";
+"notif_Reposted_your_post_old" = "Återpublicerade ditt inlägg";
+"notif_Reposted_your_Post_old" = "Återpublicerade ditt Inlägg";
+
+"notif_retweeted_your_tweet_new" = "retweetade din Tweet";
+"notif_retweeted_your_Tweet_new" = "retweetade din Tweet";
+"notif_Retweeted_your_Tweet_new" = "Retweetade din Tweet";
+
+"notif_your_post_old" = "ditt inlägg";
+"notif_your_Post_old" = "ditt Inlägg";
+"notif_your_tweet_new" = "din Tweet";
+"notif_your_Tweet_new" = "din Tweet";
+
+"notif_a_post_old" = "ett inlägg";
+"notif_a_Post_old" = "ett Inlägg";
+"notif_a_tweet_new" = "en Tweet";
+"notif_a_Tweet_new" = "en Tweet";
+
+"notif_new_post_old" = "nytt inlägg";
+"notif_new_Post_old" = "nytt Inlägg";
+"notif_new_tweet_new" = "ny Tweet";
+"notif_new_Tweet_new" = "ny Tweet";
+
+"notif_New_post_old" = "Nytt inlägg";
+"notif_New_Post_old" = "Nytt Inlägg";
+"notif_New_tweet_new" = "Ny Tweet";
+"notif_New_Tweet_new" = "Ny Tweet";
+
+"notif_recent_post_old" = "nya inlägg";
+"notif_recent_Post_old" = "nya Inlägg";
+"notif_recent_tweet_new" = "nya Tweets";
+"notif_recent_Tweet_new" = "nya Tweets";
+
+"notif_Recent_post_old" = "Nya inlägg";
+"notif_Recent_Post_old" = "Nya Inlägg";
+"notif_Recent_tweet_new" = "Nya Tweets";
+"notif_Recent_Tweet_new" = "Nya Tweets";
+
+"notif_reposted_old" = "återpublicerade";
+"notif_Reposted_old" = "Återpublicerade";
+"notif_retweeted_new" = "retweetade";
+"notif_Retweeted_new" = "retweetade";
+
+
+"notif_pinned_Post_old" = "Nytt fastnålat inlägg";
+"notif_pinned_Tweet_new" = "Ny fastnålad Tweet";
+
+"notif_your_Posts_old" = "dina inlägg";
+"notif_your_Tweets_new" = "dina Tweets";
+
+"notif_repost_old" = "återpublicering";
+"notif_retweet_new" = "retweet";
+
+"notif_Repost_old" = "Återpublicering";
+"notif_Retweet_new" = "Retweet";

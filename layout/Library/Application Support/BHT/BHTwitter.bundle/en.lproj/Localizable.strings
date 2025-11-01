@@ -391,3 +391,62 @@
 "FOLLOW_OFFICIAL_PAGE_SECTION_HEADER_TITLE" = "Follow NeoFreeBird";
 
 "MODERN_SETTINGS_PLACEHOLDER_TEXT" = "Nothing to see here - yet";
+
+
+"SOURCE_UNAVAILABLE" = "Source Unavailable";
+
+"notif_reposted_your_post_old" = "reposted your post";
+"notif_reposted_your_Post_old" = "reposted your Post";
+"notif_Reposted_your_post_old" = "Reposted your post";
+"notif_Reposted_your_Post_old" = "Reposted your Post";
+
+"notif_retweeted_your_tweet_new" = "retweeted your Tweet";
+"notif_retweeted_your_Tweet_new" = "retweeted your Tweet";
+"notif_Retweeted_your_Tweet_new" = "Retweeted your Tweet";
+
+"notif_your_post_old" = "your post";
+"notif_your_Post_old" = "your Post";
+"notif_your_tweet_new" = "your Tweet";
+"notif_your_Tweet_new" = "your Tweet";
+
+"notif_a_post_old" = "a post";
+"notif_a_Post_old" = "a Post";
+"notif_a_tweet_new" = "a Tweet";
+"notif_a_Tweet_new" = "a Tweet";
+
+"notif_new_post_old" = "new post";
+"notif_new_Post_old" = "new Post";
+"notif_new_tweet_new" = "new Tweet";
+"notif_new_Tweet_new" = "new Tweet";
+
+"notif_New_post_old" = "New post";
+"notif_New_Post_old" = "New Post";
+"notif_New_tweet_new" = "New Tweet";
+"notif_New_Tweet_new" = "New Tweet";
+
+"notif_recent_post_old" = "recent post";
+"notif_recent_Post_old" = "recent Post";
+"notif_recent_tweet_new" = "recent Tweet";
+"notif_recent_Tweet_new" = "recent Tweet";
+
+"notif_Recent_post_old" = "Recent post";
+"notif_Recent_Post_old" = "Recent Post";
+"notif_Recent_tweet_new" = "Recent Tweet";
+"notif_Recent_Tweet_new" = "Recent Tweet";
+
+"notif_reposted_old" = "reposted";
+"notif_Reposted_old" = "Reposted";
+"notif_retweeted_new" = "retweeted";
+"notif_Retweeted_new" = "Retweeted";
+
+"notif_pinned_Post_old" = "New pinned Post";
+"notif_pinned_Tweet_new" = "New pinned Tweet";
+
+"notif_your_Posts_old" = "your Posts";
+"notif_your_Tweets_new" = "your Tweets";
+
+"notif_repost_old" = "repost";
+"notif_retweet_new" = "retweet";
+
+"notif_Repost_old" = "Repost";
+"notif_Retweet_new" = "Retweet";

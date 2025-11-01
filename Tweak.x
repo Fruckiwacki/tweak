@@ -2678,9 +2678,10 @@ static NSTimer *cookieRetryTimer = nil;
 
     // --- Tweet source label coloring (only if enabled) ---
     if ([BHTManager RestoreTweetLabels] && tweetSources.count > 0) {
+        NSString *unavailable = [[BHTBundle sharedBundle] localizedStringForKey:@"SOURCE_UNAVAILABLE"];
         for (NSString *sourceText in tweetSources.allValues) {
             if (sourceText.length > 0 &&
-                ![sourceText isEqualToString:@"Source Unavailable"] &&
+                ![sourceText isEqualToString:unavailable] &&
                 [currentText containsString:sourceText]) {
 
                 NSRange sourceRange = [currentText rangeOfString:sourceText];
@@ -2694,9 +2695,10 @@ static NSTimer *cookieRetryTimer = nil;
                         if (!newString) {
                             newString = [[NSMutableAttributedString alloc] initWithAttributedString:model.attributedString];
                         }
+                        // Add only the color attribute, do not overwrite the run
                         [newString addAttribute:NSForegroundColorAttributeName
-                                           value:accentColor
-                                           range:sourceRange];
+                                          value:accentColor
+                                          range:sourceRange];
                         modified = YES;
                     }
                 }
@@ -2726,49 +2728,116 @@ static NSTimer *cookieRetryTimer = nil;
 
         NSArray *replacements = @[
             // Full phrase replacements first
-            @{@"old": @"Reposted your post", @"new": @"Retweeted your Tweet"},
-            @{@"old": @"Reposted your Post", @"new": @"Retweeted your Tweet"},
-            @{@"old": @"reposted your post", @"new": @"retweeted your Tweet"},
-            @{@"old": @"reposted your Post", @"new": @"retweeted your Tweet"},
+            @{@"old": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_reposted_your_post_old"],
+              @"new": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_retweeted_your_tweet_new"]},
+
+            @{@"old": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_reposted_your_Post_old"],
+              @"new": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_retweeted_your_Tweet_new"]},
+
+            @{@"old": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_Reposted_your_post_old"],
+              @"new": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_Retweeted_your_Tweet_new"]},
+
+            @{@"old": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_Reposted_your_Post_old"],
+              @"new": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_Retweeted_your_Tweet_new"]},
 
             // Standalone "post" -> "Tweet"
-            @{@"old": @"your post", @"new": @"your Tweet"},
-            @{@"old": @"your Post", @"new": @"your Tweet"},
-            @{@"old": @"a post",    @"new": @"a Tweet"},
-            @{@"old": @"a Post",    @"new": @"a Tweet"},
-            @{@"old": @"new post",    @"new": @"new Tweet"},
-            @{@"old": @"new Post",    @"new": @"new Tweet"},
-            @{@"old": @"New post",    @"new": @"New Tweet"},
-            @{@"old": @"New Post",    @"new": @"New Tweet"},
-            @{@"old": @"recent post",    @"new": @"recent Tweet"},
-            @{@"old": @"recent Post",    @"new": @"recent Tweet"},
-            @{@"old": @"Recent post",    @"new": @"Recent Tweet"},
-            @{@"old": @"Recent Post",    @"new": @"Recent Tweet"},
+            @{@"old": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_your_post_old"],
+              @"new": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_your_tweet_new"]},
+
+            @{@"old": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_your_Post_old"],
+              @"new": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_your_Tweet_new"]},
+
+            @{@"old": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_a_post_old"],
+              @"new": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_a_tweet_new"]},
+
+            @{@"old": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_a_Post_old"],
+              @"new": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_a_Tweet_new"]},
+
+            @{@"old": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_new_post_old"],
+              @"new": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_new_tweet_new"]},
+
+            @{@"old": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_new_Post_old"],
+              @"new": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_new_Tweet_new"]},
+
+            @{@"old": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_New_post_old"],
+              @"new": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_New_tweet_new"]},
+
+            @{@"old": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_New_Post_old"],
+              @"new": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_New_Tweet_new"]},
+
+            @{@"old": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_recent_post_old"],
+              @"new": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_recent_tweet_new"]},
+
+            @{@"old": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_recent_Post_old"],
+              @"new": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_recent_Tweet_new"]},
+
+            @{@"old": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_Recent_post_old"],
+              @"new": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_Recent_tweet_new"]},
+
+            @{@"old": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_Recent_Post_old"],
+              @"new": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_Recent_Tweet_new"]},
+
+            @{@"old": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_pinned_Post_old"],
+              @"new": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_pinned_Tweet_new"]},
+
+            @{@"old": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_your_Posts_old"],
+              @"new": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_your_Tweets_new"]},
 
             // Standalone "reposted" -> "retweeted"
-            @{@"old": @"reposted",  @"new": @"retweeted"},
-            @{@"old": @"Reposted",  @"new": @"Retweeted"}
+            @{@"old": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_reposted_old"],
+              @"new": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_retweeted_new"]},
+
+            @{@"old": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_Reposted_old"],
+              @"new": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_Retweeted_new"]},
+
+            @{@"old": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_repost_old"],
+              @"new": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_retweet_new"]},
+
+            @{@"old": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_Repost_old"],
+              @"new": [[BHTBundle sharedBundle] localizedStringForKey:@"notif_Retweet_new"]}
         ];
 
-        NSString *mutableStringContent = newString.string;
         for (NSDictionary *rep in replacements) {
-            NSRange searchRange = [mutableStringContent rangeOfString:rep[@"old"]];
-            while (searchRange.location != NSNotFound) {
-                NSDictionary *existingAttributes = [newString attributesAtIndex:searchRange.location effectiveRange:NULL];
-                [newString replaceCharactersInRange:searchRange withString:rep[@"new"]];
-                [newString setAttributes:existingAttributes range:NSMakeRange(searchRange.location, [rep[@"new"] length])];
+            NSString *oldStr = rep[@"old"];
+            NSString *newStr = rep[@"new"];
+            if (oldStr.length == 0 || newStr.length == 0) continue;
 
-                mutableStringContent = newString.string; // Update after change
-                searchRange = [mutableStringContent rangeOfString:rep[@"old"]];
+            // Search and replace repeatedly, preserving attributes
+            NSRange searchRange = [[newString string] rangeOfString:oldStr];
+            while (searchRange.location != NSNotFound) {
+                // Preserve the full attribute run covering the old text
+                NSRange runRange = {0, 0};
+                NSDictionary *attrs = [newString attributesAtIndex:searchRange.location effectiveRange:&runRange];
+
+                // Build attributed replacement with the same attributes
+                NSAttributedString *replacement =
+                    [[NSAttributedString alloc] initWithString:newStr attributes:attrs];
+
+                // Replace with attributed string to keep layout-affecting attributes
+                [newString replaceCharactersInRange:searchRange withAttributedString:replacement];
                 modified = YES;
+
+                // Continue searching after the inserted text
+                NSUInteger nextLocation = searchRange.location + replacement.length;
+                if (nextLocation >= newString.length) break;
+
+                NSRange remainder = NSMakeRange(nextLocation, newString.length - nextLocation);
+                searchRange = [[newString string] rangeOfString:oldStr options:0 range:remainder];
             }
         }
     }
 
     // --- Apply modifications if needed ---
     if (modified && newString) {
-        TFNAttributedTextModel *newModel = [[%c(TFNAttributedTextModel) alloc] initWithAttributedString:newString];
-        %orig(newModel);
+        id outModel = model;
+        if ([model respondsToSelector:@selector(setAttributedString:)]) {
+            // Update in place to preserve any cached sizing metadata
+            [model setAttributedString:newString];
+        } else {
+            // Fallback: construct a new model from the updated string
+            outModel = [[%c(TFNAttributedTextModel) alloc] initWithAttributedString:newString];
+        }
+        %orig(outModel);
     } else {
         %orig(model);
     }
